@@ -8,7 +8,7 @@ function sign($params, $token) {
   ksort($params);
   $sign_str = [];
   foreach ($params as $key => $val) {
-    if ($key == 'verify_sign' || $val == null || $val == '' || $val == 'null') continue;
+    if ($key == 'act' || $key == 'verify_sign' || $val == null || $val == '' || $val == 'null') continue;
     array_push($sign_str, "$key=$val");
   }
   $sign_str = implode('&', $sign_str);
