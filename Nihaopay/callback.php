@@ -15,7 +15,7 @@ function sign($params, $token) {
   return md5("$sign_str&" . md5($token));
 }
 
-if(!isset($_REQUEST['verify_sign']) || $_REQUEST['verify_sign'] != sign($_REQUEST, NIHAOPAY_TOKEN)) {
+if(!isset($_REQUEST['verify_sign']) || $_REQUEST['verify_sign'] != sign($_POST, NIHAOPAY_TOKEN)) {
   http_response_code(400);
   die;
 }
